@@ -20,10 +20,10 @@ router.route('/:playlistId')
 router.route('/create')
   .post(createPlaylist)
 
-router.route('/add')
+router.route('/addVideo')
   .post(addToPlaylist)
 
-router.route('/remove')
+router.route('/removeVideo')
   .post(removeFromPlaylist)
 
 export default router;

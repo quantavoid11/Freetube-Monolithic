@@ -18,6 +18,7 @@ export const uploadVideo=asyncHandler(async(req,res)=>{
 
       const videoFile=await uploadOnCloudinary(videoFilePath);
       const thumbNail=await uploadOnCloudinary(thumbNailPath);
+
       if(!videoFile){
         throw new ApiError(400,"Error while uploading video");
       }
@@ -53,9 +54,7 @@ export const uploadVideo=asyncHandler(async(req,res)=>{
 
 export const deleteVideo=asyncHandler(async(req,res)=>{
         const videoId=req.params.id;
-        if(!videoId){
-          throw new ApiError(400,"VideoId required")
-        }
+
         const video=await Video.findByIdAndDelete(videoId);
         if(!video){
           throw new ApiError(400,"Some error occurred while deleting the video");

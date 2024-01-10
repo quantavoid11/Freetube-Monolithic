@@ -7,9 +7,7 @@ export const getPlaylists=asyncHandler(async(req,res)=>{
 })
 export const getPlaylistById=asyncHandler(async(req,res)=>{
         const playlistId=req.params.id;
-        if(!playlistId){
-          throw new ApiError(400,"Playlist id is required");
-        }
+
         const playlist=await Playlist.findById(playlistId);
         if(!playlist){
           throw new ApiError(404,"Playlist does not exist");
@@ -29,7 +27,9 @@ export const createPlaylist=asyncHandler(async(req,res)=>{
       if(!name){
         throw new ApiError(400,"Playlist name is required");
       }
+      //add to check user
       const playlistExists=await Playlist.findOne({name:name});
+
       if(playlistExists){
         throw new ApiError(409,"Playlist with this name already exists");
       }

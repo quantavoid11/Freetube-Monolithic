@@ -10,7 +10,7 @@ export const likeComment=asyncHandler(async(req,res)=>{
       if(!comment){
         throw new ApiError(404,"Comment does not exist");
       }
-      const like=await Like({
+      const like=await Like.create({
         comment:comment,
         video:comment.video,
         likedBy:req.user?._id
@@ -49,6 +49,8 @@ export const addComment=asyncHandler(async(req,res)=>{
     )
 
 })
+
+//Review it
 export const removeComment=asyncHandler(async(req,res)=>{
 
   const videoId=req.query.videoId;
@@ -67,6 +69,7 @@ export const removeComment=asyncHandler(async(req,res)=>{
     )
 })
 
+//review it
 export const editComment=asyncHandler(async(req,res)=>{
   const content=req.body;
   const videoId=req.query.videoId;
