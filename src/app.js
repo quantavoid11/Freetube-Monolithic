@@ -24,9 +24,9 @@ app.use("/api/v1/users",userRouter);
 
 app.use('/api/v1/channels',channelRouter);
 
-app.use('/api/v1/playlist',playlistRouter);
+app.use('/api/v1/playlists',playlistRouter);
 
-app.use('/api/v1/comment',commentRouter);
+app.use('/api/v1/comments',commentRouter);
 
 
 export default app;

@@ -195,6 +195,7 @@ export const updateAvatar=asyncHandler(async (req,res)=>{
         }
 
     const avatarOld=req.user.avatar;
+        //Todo- Delete old image
     const avatar=await uploadOnCloudinary(avatarPath);
 
     if(!avatar.url){
@@ -221,6 +222,7 @@ export const updateCoverImage=asyncHandler(async(req,res) =>{
     }
 
     const coverImageOld=req.user.coverImage;
+    //Todo- Delete old image
     const coverImage=await uploadOnCloudinary(coverImagePath);
 
     if(!coverImage.url){
@@ -363,7 +365,7 @@ export const getWatchHistory=asyncHandler(async(req,res)=>{
         new ApiResponse(
           200,
           user[0].watchHistory,
-          "user's watch history fetched successfully"
+          "User's watch history fetched successfully"
         )
       );
 
