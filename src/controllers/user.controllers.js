@@ -20,6 +20,7 @@ const generateAccessAndRefreshToken=async(id)=>{
    }
 }
 export const registerUser=asyncHandler(async(req,res)=>{
+    console.log("listening");
     const {username,email,name,password}=req.body;
     if([username,name,email,password].some(field=>!field || field?.trim()==="")){
         throw new ApiError(400,"ALl fields are required");
@@ -45,9 +46,9 @@ export const registerUser=asyncHandler(async(req,res)=>{
     const avatar=await uploadOnCloudinary(avatarPath);
     const coverImage=await uploadOnCloudinary(coverImagePath);
 
-    if(!avatar){
-        throw new ApiError(400,"Avatar is required")
-    }
+    // if(!avatar){
+    //     throw new ApiError(400,"Avatar is required")
+    // }
 
     const user=await User.create({
         username:username.toLowerCase(),
