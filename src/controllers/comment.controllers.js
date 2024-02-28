@@ -3,7 +3,6 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import {Comment} from "../models/comment.model.js"
 import { Like } from "../models/like.model.js";
-
 export const likeComment=asyncHandler(async(req,res)=>{
       const commentId=req.query.commentId;
       const comment= await Comment.findById(commentId);
@@ -65,7 +64,6 @@ export const addComment=asyncHandler(async(req,res)=>{
     )
 
 })
-
 export const removeComment=asyncHandler(async(req,res)=>{
 
   const commentId=req.query.commentId;
@@ -84,7 +82,6 @@ export const removeComment=asyncHandler(async(req,res)=>{
     )
 })
 
-//review it
 export const editComment=asyncHandler(async(req,res)=>{
   const content=req.body;
   if(!content){

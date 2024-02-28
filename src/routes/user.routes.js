@@ -1,11 +1,11 @@
 import { Router } from "express";
 import {
-  addToPlaylist,
-  changePassword, createPlaylist, getPlaylistById, getPlaylists,
+
+  changePassword,
   getUser,
   loginUser,
   logoutUser,
-  registerUser, removeFromPlaylist, updateAvatar, updateCoverImage,
+  registerUser, updateAvatar, updateCoverImage,
   updateUser,
 } from "../controllers/user.controllers.js";
 import {upload} from "../middlewares/multer.js";
