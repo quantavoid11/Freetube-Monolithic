@@ -6,7 +6,11 @@ import videoRouter from "./routes/channel.routes.js"
 import playlistRouter from "./routes/playlist.routes.js";
 import commentRouter from "./routes/coment.routes.js";
 import channelRouter from "./routes/channel.routes.js";
-import path from "path";
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app=express();
 
@@ -24,7 +28,8 @@ app.use(express.static("public"))
 app.use(cookieParser());
 
 app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.set('views', path.join(__dirname,"views") );
+
 
 const allowedRoutes = [
     "/api/v1/users",
